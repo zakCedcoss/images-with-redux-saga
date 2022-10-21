@@ -6,7 +6,7 @@ import {
 } from "../reducers/ImageSlice";
 
 const imageApi = (page) => {
-  const unsplashApi = `https://api.unsplash.com/search/photo?page=${page}&query=nature&client_id=pUMdKf_Knqnrm9YOuFpuKbiV5q6WgsAU3vbg5PEkTTA&per_page=20`;
+  const unsplashApi = `https://api.unsplash.com/search/photos?page=${page}&query=nature&client_id=pUMdKf_Knqnrm9YOuFpuKbiV5q6WgsAU3vbg5PEkTTA&per_page=20`;
   return unsplashApi;
 };
 
