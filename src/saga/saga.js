@@ -29,7 +29,7 @@ function* fetchImages(action) {
     if (data) {
       yield put(recieveImagesFulfilled(data));
     } else {
-      throw new Error("Unable to fetch");
+      throw new Error("No data found !");
     }
   } catch (error) {
     yield put(recieveImagesRejected(errors));
