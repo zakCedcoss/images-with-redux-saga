@@ -6,6 +6,7 @@ const initialState = {
   page: 1,
   isLoading: false,
   isError: false,
+  message: "",
 };
 
 const imageSlice = createSlice({
@@ -29,20 +30,17 @@ const imageSlice = createSlice({
     setter(state, action) {
       state.images = action.payload;
     },
-    recieveImagesPending(state, action) {
-      console.log(action);
+    recieveImagesPending(state) {
       state.isLoading = true;
       state.isError = false;
     },
     recieveImagesFulfilled(state, action) {
-      console.log(action);
       state.images = action.payload.results;
       state.backup = action.payload.results;
       state.isLoading = false;
       state.isError = false;
     },
-    recieveImagesRejected(state, action) {
-      console.log(action);
+    recieveImagesRejected(state) {
       state.images = [];
       state.backup = [];
       state.isLoading = false;

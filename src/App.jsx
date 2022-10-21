@@ -199,17 +199,20 @@ function App() {
       )}
       {/* {It is to test that Loader is showing or not} */}
       {/* {We have to remove this pagination} */}
-      <div className="pagination">
-        <h3 style={{ textDecoration: "underline" }}>
-          Showing {page} of 55 pages
-        </h3>
-        <div className="page-btn">
-          {page !== 1 && <button onClick={handlePrev}>Prev</button>}
-          <button onClick={handleNext}>Next</button>
+      {!isError && (
+        <div className="pagination">
+          <h3 style={{ textDecoration: "underline" }}>
+            Showing {page} of 55 pages
+          </h3>
+          <div className="page-btn">
+            {page !== 1 && <button onClick={handlePrev}>Prev</button>}
+            <button onClick={handleNext}>Next</button>
+          </div>
         </div>
-      </div>
+      )}
       <div className="img-container">
-        {isLoading && <Loader />}
+        {isLoading && <Loader message="LOADING..." />}
+        {isError && <Loader message="Error: Unable to fetch data !!!" />}
         {!isLoading &&
           !isError &&
           images.map((image) => {
@@ -242,15 +245,17 @@ function App() {
             );
           })}
       </div>
-      <div className="pagination">
-        <h3 style={{ textDecoration: "underline" }}>
-          Showing {page} of 55 pages
-        </h3>
-        <div className="page-btn">
-          {page !== 1 && <button onClick={handlePrev}>Prev</button>}
-          <button onClick={handleNext}>Next</button>
+      {!isError && (
+        <div className="pagination">
+          <h3 style={{ textDecoration: "underline" }}>
+            Showing {page} of 55 pages
+          </h3>
+          <div className="page-btn">
+            {page !== 1 && <button onClick={handlePrev}>Prev</button>}
+            <button onClick={handleNext}>Next</button>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

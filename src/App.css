@@ -204,7 +204,7 @@ background: radial-gradient(circle, #32b09e 35%, #61cb95 100%);
 
 .loader {
     text-align: center;
-    width: 100%;
+    width: max-content;
     height: 100%;
-    font-size: 5rem;
+    font-size: 3rem;
 }
